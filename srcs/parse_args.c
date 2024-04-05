@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/15 13:11:06 by deydoux           #+#    #+#             */
-/*   Updated: 2024/04/04 20:24:57 by agerbaud         ###   ########.fr       */
+/*   Created: 2023/12/15 13:11:06 by agerbaud          #+#    #+#             */
+/*   Updated: 2024/04/05 16:32:36 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static bool	atoi_safe(char *s, int *n)
 {
-	unsigned int	u;
+	long	u;
 
 	if (!s || s[0] == 0)
 		return (true);

@@ -6,7 +6,7 @@
 #    By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/05 11:34:08 by agerbaud          #+#    #+#              #
-#    Updated: 2024/04/05 15:34:39 by agerbaud         ###   ########.fr        #
+#    Updated: 2024/04/05 16:28:16 by agerbaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ DEPENDENCIES = $(SRCS:.c=.d) $(UTILS:.c=.d) $(BONUS_SRCS:.c=.d)
 
 all: libft bonus $(NAME)
 
-bonus: $(BONUS_NAME)
+bonus: libft $(BONUS_NAME)
 
 $(NAME): $(OBJECTS) $(UTILS_OBJECTS) $(LIBFT)
 	$(CC) -o $@ $^ $(LFLAGS)
