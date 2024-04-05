@@ -6,7 +6,7 @@
 /*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:41:19 by deydoux           #+#    #+#             */
-/*   Updated: 2024/04/03 11:59:02 by agerbaud         ###   ########.fr       */
+/*   Updated: 2024/04/05 15:44:06 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static bool	switch_operation(char *instruction, t_stack stacks)
 	const t_operation	operations[] = {swap_a, swap_b, swap_stacks, push_a,
 		push_b, rotate_a, rotate_b, rotate_stacks, reverse_rotate_a,
 		reverse_rotate_b, reverse_rotate_stacks};
-	int				i;
+	int					i;
 
 	i = 0;
 	while (instructions[i])

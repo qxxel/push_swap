@@ -6,7 +6,7 @@
 /*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:25:34 by agerbaud          #+#    #+#             */
-/*   Updated: 2024/04/03 09:47:40 by agerbaud         ###   ########.fr       */
+/*   Updated: 2024/04/05 15:47:38 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
 
-
 /*FT_PRINTF*/
 int		ft_printf(const char *format, ...);
 void	ft_putchar_pf(char c, int fd, int *nb_char);
@@ -32,7 +31,6 @@ void	ft_putnbr_pf(int n, int fd, int *nb_char);
 void	ft_putnbr_unsigned_pf(unsigned int n, int fd, int *nb_char);
 void	ft_puthexa_pf(unsigned int nbr, char *base, int *nb_char);
 void	ft_putpointer_pf(unsigned long long nbr, int *nb_char, int first);
-
 
 /*GET_NEXT_LINE*/
 # ifndef BUFFER_SIZE
@@ -43,7 +41,6 @@ char	*get_next_line(int fd);
 int		ft_last_index(char *s);
 int		check_nl(char *buffer);
 char	*ft_strcpy(char *dest, char *src);
-
 
 /*LST*/
 typedef struct s_list
@@ -62,14 +59,12 @@ void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
-
 /*MEM*/
 void	*ft_memset(void *s, int c, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
-
 
 /*OTHERS*/
 void	*ft_bzero(void *s, size_t n);
@@ -80,13 +75,11 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 char	**ft_split(char const *s, char c);
 
-
 /*PUT*/
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-
 
 /*STR*/
 size_t	ft_strlen(const char *s);

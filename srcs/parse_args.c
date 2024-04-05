@@ -6,7 +6,7 @@
 /*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:11:06 by deydoux           #+#    #+#             */
-/*   Updated: 2024/04/03 11:55:52 by agerbaud         ###   ########.fr       */
+/*   Updated: 2024/04/04 20:24:57 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static bool	atoi_safe(char *s, int *n)
 {
 	unsigned int	u;
 
-	if (!s)
+	if (!s || s[0] == 0)
 		return (true);
 	*n = 1;
 	u = 0;
@@ -78,11 +78,13 @@ void	free_tab(char **map)
 bool	parse_args(int argc, char **argv, t_list **stack)
 {
 	char	**args;
-	int	i;
+	int		i;
 	bool	error;
 
 	if (!argc)
 		return (false);
+	if (argv[0][0] == 0)
+		return (true);
 	args = ft_split(*argv, ' ');
 	if (!args)
 		return (true);

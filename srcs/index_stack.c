@@ -6,7 +6,7 @@
 /*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 14:34:00 by deydoux           #+#    #+#             */
-/*   Updated: 2024/04/03 11:55:52 by agerbaud         ###   ########.fr       */
+/*   Updated: 2024/04/05 15:44:39 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static t_value	*min_elem(t_list *stack)
 void	index_stack(t_list *stack, int size)
 {
 	t_value	*min;
-	int	index;
+	int		index;
 
 	min = min_elem(stack);
 	min->index = 0;

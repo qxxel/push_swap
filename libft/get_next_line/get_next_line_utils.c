@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agerbaud <agerbaud@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 22:35:43 by agerbaud          #+#    #+#             */
-/*   Updated: 2024/02/08 13:49:19 by agerbaud         ###   ########.fr       */
+/*   Updated: 2024/04/05 15:47:06 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
-
 
 char	*ft_strcpy(char *dest, char *src)
 {

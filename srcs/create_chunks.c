@@ -6,7 +6,7 @@
 /*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 01:34:46 by deydoux           #+#    #+#             */
-/*   Updated: 2024/04/03 11:55:52 by agerbaud         ###   ########.fr       */
+/*   Updated: 2024/04/05 15:42:39 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ static t_operation	get_rotation(t_list *stack, int min, int max)
 
 void	create_chunks(int size, t_stack stacks)
 {
-	int		current;
-	int		min;
-	int		max;
+	int			current;
+	int			min;
+	int			max;
 	t_operation	rotation;
 
 	current = 0;

@@ -6,7 +6,7 @@
 /*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 21:20:56 by deydoux           #+#    #+#             */
-/*   Updated: 2024/04/03 11:55:52 by agerbaud         ###   ########.fr       */
+/*   Updated: 2024/04/05 15:55:58 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,10 @@ static bool	swap_three(t_list *stack)
 	first = ((t_value *)stack->content)->value;
 	second = ((t_value *)stack->next->content)->value;
 	third = ((t_value *)stack->next->next->content)->value;
-	return (
-		(first < third
-			&& (
-				(first < second && first < third && second > third)
-				|| (first > second && second < third)
-			)
-		)
-		|| (first > second && second > third)
-	);
+	return ((first < third
+		&& ((first < second && first < third && second > third)
+		|| (first > second && second < third)))
+		|| (first > second && second > third));
 }
 
 static void	do_b_rotations(t_instructions *moves, t_stack stacks)
@@ -81,8 +76,8 @@ static t_operation	final_rotation(t_list *stack)
 
 void	sort_stack(t_stack stacks, int size)
 {
-	t_instructions		moves;
-	t_operation	rotation;
+	t_instructions	moves;
+	t_operation		rotation;
 
 	if (size == 2)
 		return (swap_a(stacks));
