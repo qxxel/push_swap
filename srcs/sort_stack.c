@@ -22,8 +22,8 @@ static bool	swap_three(t_list *stack)
 	second = ((t_value *)stack->next->content)->value;
 	third = ((t_value *)stack->next->next->content)->value;
 	return ((first < third
-		&& ((first < second && first < third && second > third)
-		|| (first > second && second < third)))
+			&& ((first < second && first < third && second > third)
+				|| (first > second && second < third)))
 		|| (first > second && second > third));
 }
 

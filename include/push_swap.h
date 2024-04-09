@@ -46,7 +46,7 @@ typedef void	(*t_operation)(t_stack);
 
 void			free_stacks(t_stack stacks);
 
-bool init_stack(int argc, char **argv, t_stack *stacks);
+bool			init_stack(int argc, char **argv, t_stack *stacks);
 bool			is_sorted_stack(t_list *stack);
 bool			parse_args(int argc, char **argv, t_list **stack);
 void			push_a(t_stack stacks);
