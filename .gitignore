@@ -2,4 +2,7 @@
 *.d
 checker_linux
 push_swap
-libft.a
+.build
+libft/.build/
+libft/*.a
+.vscode

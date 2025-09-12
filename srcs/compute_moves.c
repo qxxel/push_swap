@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   compute_moves.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: agerbaud <agerbaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:49:16 by agerbaud          #+#    #+#             */
-/*   Updated: 2024/04/05 16:32:36 by agerbaud         ###   ########.fr       */
+/*   Updated: 2025/09/12 11:29:24 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../includes/push_swap.h"
 
 static void	compute_b_moves(t_list *stack, int position, t_instructions *moves)
 {

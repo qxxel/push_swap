@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: agerbaud <agerbaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 15:55:04 by agerbaud          #+#    #+#             */
-/*   Updated: 2024/01/05 22:40:01 by agerbaud         ###   ########.fr       */
+/*   Updated: 2025/09/12 11:29:24 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../includes/push_swap.h"
 
 bool	init_stack(int argc, char **argv, t_stack *stacks)
 {

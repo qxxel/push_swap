@@ -1,27 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_sorted_stack.c                                  :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agerbaud <agerbaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/29 17:51:57 by agerbaud          #+#    #+#             */
-/*   Updated: 2025/09/12 11:29:24 by agerbaud         ###   ########.fr       */
+/*   Created: 2023/11/07 10:34:36 by agerbaud          #+#    #+#             */
+/*   Updated: 2025/09/12 09:58:27 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/libft.h"
 
-bool	is_sorted_stack(t_list *stack)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	if (!stack)
-		return (true);
-	while (stack->next)
+	char		*dest_tmp;
+	const char	*src_tmp;
+	size_t		i;
+
+	if (!dest && !src)
+		return (dest);
+	dest_tmp = dest;
+	src_tmp = src;
+	if (dest < src)
 	{
-		if (((t_value *)stack->content)->value
-			> ((t_value *)stack->next->content)->value)
-			return (false);
-		stack = stack->next;
+		i = 0;
+		while (i < n)
+		{
+			dest_tmp[i] = src_tmp[i];
+			i++;
+		}
 	}
-	return (true);
+	else
+	{
+		while (n--)
+			dest_tmp[n] = src_tmp[n];
+	}
+	return (dest);
 }

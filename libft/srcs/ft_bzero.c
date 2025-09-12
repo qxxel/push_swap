@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_sorted_stack.c                                  :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agerbaud <agerbaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/29 17:51:57 by agerbaud          #+#    #+#             */
-/*   Updated: 2025/09/12 11:29:24 by agerbaud         ###   ########.fr       */
+/*   Created: 2023/11/06 17:28:39 by agerbaud          #+#    #+#             */
+/*   Updated: 2025/09/12 09:58:27 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/libft.h"
 
-bool	is_sorted_stack(t_list *stack)
+void	*ft_bzero(void *s, size_t n)
 {
-	if (!stack)
-		return (true);
-	while (stack->next)
-	{
-		if (((t_value *)stack->content)->value
-			> ((t_value *)stack->next->content)->value)
-			return (false);
-		stack = stack->next;
-	}
-	return (true);
+	unsigned char	*j;
+
+	j = s;
+	while (n--)
+		j[n] = 0;
+	return (s);
 }

@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_sorted_stack.c                                  :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agerbaud <agerbaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/29 17:51:57 by agerbaud          #+#    #+#             */
-/*   Updated: 2025/09/12 11:29:24 by agerbaud         ###   ########.fr       */
+/*   Created: 2023/11/07 13:41:17 by agerbaud          #+#    #+#             */
+/*   Updated: 2025/09/12 09:58:27 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/libft.h"
 
-bool	is_sorted_stack(t_list *stack)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	if (!stack)
-		return (true);
-	while (stack->next)
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = ft_strlen(dst);
+	if (size <= j)
+		return (ft_strlen(src) + size);
+	while (!(size == 0) && (i + j < size - 1) && src[i])
 	{
-		if (((t_value *)stack->content)->value
-			> ((t_value *)stack->next->content)->value)
-			return (false);
-		stack = stack->next;
+		dst[j + i] = src[i];
+		i++;
 	}
-	return (true);
+	dst[j + i] = 0;
+	i = 0;
+	while (src[i])
+		i++;
+	return (i + j);
 }

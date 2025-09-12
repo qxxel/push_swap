@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_sorted_stack.c                                  :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agerbaud <agerbaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/29 17:51:57 by agerbaud          #+#    #+#             */
-/*   Updated: 2025/09/12 11:29:24 by agerbaud         ###   ########.fr       */
+/*   Created: 2023/11/09 14:17:19 by agerbaud          #+#    #+#             */
+/*   Updated: 2025/09/12 09:58:27 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/libft.h"
 
-bool	is_sorted_stack(t_list *stack)
+void	ft_putendl_fd(char *s, int fd)
 {
-	if (!stack)
-		return (true);
-	while (stack->next)
+	size_t	i;
+
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i])
 	{
-		if (((t_value *)stack->content)->value
-			> ((t_value *)stack->next->content)->value)
-			return (false);
-		stack = stack->next;
+		write(fd, &s[i], 1);
+		i++;
 	}
-	return (true);
+	write(fd, "\n", 1);
 }

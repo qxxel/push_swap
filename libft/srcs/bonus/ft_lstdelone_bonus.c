@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_sorted_stack.c                                  :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agerbaud <agerbaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/29 17:51:57 by agerbaud          #+#    #+#             */
-/*   Updated: 2025/09/12 11:29:24 by agerbaud         ###   ########.fr       */
+/*   Created: 2023/11/10 10:16:35 by agerbaud          #+#    #+#             */
+/*   Updated: 2025/09/12 09:58:53 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/libft.h"
 
-bool	is_sorted_stack(t_list *stack)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (!stack)
-		return (true);
-	while (stack->next)
-	{
-		if (((t_value *)stack->content)->value
-			> ((t_value *)stack->next->content)->value)
-			return (false);
-		stack = stack->next;
-	}
-	return (true);
+	if (!lst)
+		return ;
+	if (del)
+		del(lst->content);
+	free(lst);
 }

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   swap_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: agerbaud <agerbaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 13:18:01 by agerbaud          #+#    #+#             */
-/*   Updated: 2024/04/05 16:32:36 by agerbaud         ###   ########.fr       */
+/*   Updated: 2025/09/12 11:29:24 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../includes/push_swap.h"
 
 static void	swap(t_list **stack)
 {

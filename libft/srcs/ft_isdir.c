@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_sorted_stack.c                                  :+:      :+:    :+:   */
+/*   ft_isdir.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agerbaud <agerbaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/29 17:51:57 by agerbaud          #+#    #+#             */
-/*   Updated: 2025/09/12 11:29:24 by agerbaud         ###   ########.fr       */
+/*   Created: 2024/04/04 12:10:23 by agerbaud          #+#    #+#             */
+/*   Updated: 2025/09/12 10:52:31 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/libft.h"
 
-bool	is_sorted_stack(t_list *stack)
+int	ft_isdir(char *path, int flags, int perms)
 {
-	if (!stack)
-		return (true);
-	while (stack->next)
+	int		fd;
+	char	c[1];
+
+	fd = open(path, flags, perms);
+	if (fd != -1 && read(fd, c, 1) < 0)
 	{
-		if (((t_value *)stack->content)->value
-			> ((t_value *)stack->next->content)->value)
-			return (false);
-		stack = stack->next;
+		close (fd);
+		return (1);
 	}
-	return (true);
+	close (fd);
+	return (0);
 }

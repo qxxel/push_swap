@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: agerbaud <agerbaud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/05 11:34:08 by agerbaud          #+#    #+#              #
-#    Updated: 2024/04/05 16:28:16 by agerbaud         ###   ########.fr        #
+#    Updated: 2025/09/12 11:41:02 by agerbaud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,14 @@ NAME = push_swap
 BONUS_NAME = checker
 LIBFTDIR = libft
 LIBFT = $(LIBFTDIR)/libft.a
-SRCS =	srcs/compute_moves.c	\
-		srcs/create_chunks.c	\
-		srcs/greater_elem.c		\
-		srcs/index_stack.c		\
-		srcs/push_swap.c		\
-		srcs/sort_stack.c
 
-UTILS =	srcs/free_stacks.c				\
+SRCS =	srcs/compute_moves.c			\
+		srcs/create_chunks.c			\
+		srcs/greater_elem.c				\
+		srcs/index_stack.c				\
+		srcs/push_swap.c				\
+		srcs/sort_stack.c				\
+		srcs/free_stacks.c				\
 		srcs/init_stacks.c				\
 		srcs/is_sorted_stack.c			\
 		srcs/parse_args.c				\
@@ -32,41 +32,51 @@ UTILS =	srcs/free_stacks.c				\
 
 BONUS_SRCS = srcs/checker/checker.c
 
-CC = cc -Wall -Wextra -Werror -MMD -g3
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -MMD -Iincludes
+BUILD_DIR = .build
 
-OBJECTS = $(SRCS:.c=.o)
-UTILS_OBJECTS = $(UTILS:.c=.o)
-BONUS_OBJECTS = $(BONUS_SRCS:.c=.o)
-DEPENDENCIES = $(SRCS:.c=.d) $(UTILS:.c=.d) $(BONUS_SRCS:.c=.d)
+OBJECTS = $(SRCS:%.c=$(BUILD_DIR)/%.o)
+DEPENDENCIES = $(SRCS:%.c=$(BUILD_DIR)/%.d)
+
+BONUS_OBJECTS = $(BONUS_SRCS:%.c=$(BUILD_DIR)/%.o)
+BONUS_DEPENDENCIES = $(BONUS_SRCS:%.c=$(BUILD_DIR)/%.d)
+
+LIBFT_SRC = $(wildcard $(LIBFTDIR)/*.c) $(wildcard $(LIBFTDIR)/**/*.c)
+LIBFT_HDR = $(wildcard $(LIBFTDIR)/*.h) $(wildcard $(LIBFTDIR)/**/*.h)
+LIBFT_DEPS = $(LIBFT_SRC) $(LIBFT_HDR)
 
 
-all: libft bonus $(NAME)
+all: $(NAME)
 
-bonus: libft $(BONUS_NAME)
+$(LIBFT): $(LIBFT_DEPS)
+	$(MAKE) -C $(LIBFTDIR) bonus
 
-$(NAME): $(OBJECTS) $(UTILS_OBJECTS) $(LIBFT)
-	$(CC) -o $@ $^ $(LFLAGS)
+$(NAME): $(OBJECTS) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) -o $@
 
-$(BONUS_NAME): $(BONUS_OBJECTS) $(UTILS_OBJECTS) $(LIBFT)
-	$(CC) -o $@ $^ $(LFLAGS)
+$(BUILD_DIR)/%.o: %.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
 
-libft:
-	$(MAKE) -C $(LIBFTDIR)
+bonus: $(BONUS_NAME)
+
+$(BONUS_NAME): $(BONUS_OBJECTS) $(LIBFT)
+	$(CC) $(CFLAGS) $(BONUS_OBJECTS) $(LIBFT) -o $@
+
 
 -include $(DEPENDENCIES)
 
-%.o: %.c
-	$(CC) -o $@ -c $<
 
 clean:
-	$(RM) $(OBJECTS) $(UTILS_OBJECTS) $(BONUS_OBJECTS) $(DEPENDENCIES)
-	$(MAKE) -C $(LIBFTDIR) $@
+	$(RM) -r $(BUILD_DIR)
+	$(MAKE) -C $(LIBFTDIR) clean
 
 fclean: clean
-	$(RM) $(NAME) $(BONUS_NAME)
-	$(MAKE) -C $(LIBFTDIR) $@
+	$(RM) $(NAME)
+	$(MAKE) -C $(LIBFTDIR) fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus libft
 
+.PHONY: all clean fclean re

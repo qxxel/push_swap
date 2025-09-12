@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   create_chunks.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agerbaud <agerbaud@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: agerbaud <agerbaud@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 01:34:46 by agerbaud          #+#    #+#             */
-/*   Updated: 2024/04/05 16:32:36 by agerbaud         ###   ########.fr       */
+/*   Updated: 2025/09/12 11:29:24 by agerbaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../includes/push_swap.h"
 
 static bool	in_chunk(t_list *stack, int min, int max)
 {
