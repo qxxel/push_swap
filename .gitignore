@@ -4,5 +4,5 @@ checker_linux
 push_swap
 .build
 libft/.build/
-libft/*.a
+libft/libft.a
 .vscode
