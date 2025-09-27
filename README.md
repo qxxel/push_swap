@@ -28,7 +28,7 @@ It's a program that's sort a list of numbers, given as argument, with two stacks
 ✅ Take and parse a list of number in argument  
 ✅ Handle two stacks and instruction to move the numbers  
 ✅ Optimize the program to be fast in time and instructions  
-✅ Error management
+✅ Error management  
 ✅ Create a checker for this project
 
 ---
